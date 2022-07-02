@@ -69,7 +69,6 @@ router.get("/renderPage/:id", asyncErrorHandler(async (req, res) => {
         successMessage = null;
     }
     else {
-        message = null;
         errorMessage = null;
     }
 
@@ -79,7 +78,7 @@ router.get("/renderPage/:id", asyncErrorHandler(async (req, res) => {
     );
 
     let totalPages = Math.ceil(numberOfProducts.rows[0].count / PAGESIZE);
-    res.render("product_management", { pageID: pageID, totalPages: totalPages, total: numberOfProducts.rows[0].count, errorMessage: errorMessage, successMessage: successMessage });
+
 }));
 
 router.get("/get-all-products/:id", asyncErrorHandler(async (req, res) => {
@@ -476,7 +475,6 @@ router.put("/update-product", asyncErrorHandler(async (req, res) => {
 router.get("/edit-product/:id", asyncErrorHandler(async (req, res) => {
     let id = req.params.id;
 
-    res.render("editProduct", { id: id });
 }));
 
 // Change product's active status
@@ -537,10 +535,6 @@ router.get("/add-product-page", async(req, res) => {
          FROM manufacturers`
     );
 
-    res.render("addProduct", {
-        manufacturers: manufacturers,
-        categories: categories
-    });
 });
 
 router.get("/upload-image-page/:id", asyncErrorHandler(async (req, res) => {
@@ -562,10 +556,6 @@ router.get("/upload-image-page/:id", asyncErrorHandler(async (req, res) => {
     .then(data => {
         let path = data.length == 0 ? null : data[0].filepath.substring(6, data[0].filepath.length);
 
-        res.render("uploadImage", {
-            id: id,
-            imagePath: path
-        });
     })
     .catch(err => {
         res.send("<script>window.close();</script>");
@@ -724,7 +714,6 @@ router.get("/categories", asyncErrorHandler(async (req, res) => {
 
 router.post("/import-products", uploadXLSX.single('file'), asyncErrorHandler(async (req, res) => {
     if (req.file.mimetype != globalConf.supportedImportFiles.xlsx) {
-        res.redirect(`/product-management/renderPage/1?s=imageError&image=${filename}`);
         res.end();
         return;
     }

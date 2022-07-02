@@ -4,6 +4,7 @@ const utils = require('../utils');
 const asyncErrorHandler = utils.asyncErrorHandler;
 const pool = utils.pool;
 const router = express.Router();
+const globalConf = utils.globalConf;
 const PAGESIZE = globalConf.pagesize;
 
 router.get("/renderPage/:id", asyncErrorHandler(async (req, res) => {
@@ -21,11 +22,6 @@ router.get("/renderPage/:id", asyncErrorHandler(async (req, res) => {
     console.log(totalOrders.rows[0].count);
     console.log(totalPages);
 
-    res.render("myOrders", {
-        pageID: pageID,
-        totalOrders: totalOrders.rows[0].count,
-        totalPages: totalPages
-    });
 }));
 
 router.get("/get-orders/:id", asyncErrorHandler(async (req, res) => {
@@ -56,7 +52,6 @@ router.get("/get-orders/:id", asyncErrorHandler(async (req, res) => {
 router.get("/order-details/:id", asyncErrorHandler(async (req, res) => {
     let orderId = req.params.id;
 
-    res.render("orderDetails", { id: orderId });
 }));
 
 router.post("/get-specific-order", asyncErrorHandler(async (req, res) => {

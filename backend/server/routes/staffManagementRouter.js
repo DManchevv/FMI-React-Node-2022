@@ -21,7 +21,6 @@ router.get("/", asyncErrorHandler(async (req, res) => {
         `SELECT COUNT (*) FROM staff`
     );
 
-    res.render("staff_management", { totalUsers: staffNumber.rows[0].count });
 }));
 
 router.get("/get-user/:id", asyncErrorHandler(async(req,res) => {

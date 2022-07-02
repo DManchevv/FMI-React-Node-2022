@@ -5,6 +5,7 @@ const asyncErrorHandler = utils.asyncErrorHandler;
 const fs = require('fs');
 const router = express.Router();
 const globalConf = require('../config/global.conf.js');
+const pool = utils.pool;
 
 function generateRandomNumber(min, max) {
     min = Math.ceil(min);
@@ -134,24 +135,6 @@ router.get("/paid-order", asyncErrorHandler(async (req, res) => {
     else {
         errorMessage = null;
     }
-
-    res.render("paid_order_mail", {
-        subject: config.paidMail.subject,
-        header: config.paidMail.header,
-        footer: config.paidMail.footer,
-        senderMail: config.paidMail.senderMail,
-        senderName: config.paidMail.senderName,
-        borderWidth: config.paidMail.tableborder,
-        borderColor: config.paidMail.borderColor,
-        fontColor: config.paidMail.color,
-        backgroundColor: config.paidMail.backgroundColor,
-        firstCol: config.paidMail.firstCol,
-        secondCol: config.paidMail.secondCol,
-        thirdCol: config.paidMail.thirdCol,
-        fourthCol: config.paidMail.fourthCol,
-        message: message,
-        errorMessage: errorMessage
-    });
 }));
 
 router.post("/paid-order/save-global-configurations", asyncErrorHandler(async (req, res) => {

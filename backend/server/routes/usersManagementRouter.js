@@ -17,7 +17,6 @@ router.get("/renderPage/:id", asyncErrorHandler(async (req, res) => {
 
     let totalPages = Math.ceil(totalUsers.rows[0].count / PAGESIZE);
 
-    res.render("users_management", { pageID: pageID, totalUsers: totalUsers.rows[0].count, totalPages: totalPages });
 }));
 
 // Get all users

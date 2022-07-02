@@ -8,7 +8,6 @@ const globalConf = require('../config/global.conf.js');
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render("usersRoles");
 });
 
 router.get("/get-users-roles", asyncErrorHandler(async (req, res, next) => {

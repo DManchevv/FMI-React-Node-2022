@@ -10,17 +10,15 @@ const transporter = utils.transporter;
 const asyncErrorHandler = utils.asyncErrorHandler;
 const assert = require('assert');
 const globalConf = require('../config/global.conf');
+const pool = utils.pool;
 
 router.get('/', (req, res) => {
     if (!req.session.userid) {
         let err = req.query.e;
         if (err != null) {
-            res.render('register.ejs', {
-                message: "Възникна грешка! Моля опитайте отново!"
-            });
         }
         else {
-            res.render('register.ejs');
+
         }
     }
     else {
@@ -38,6 +36,7 @@ router.post("/", asyncErrorHandler(async (req, res) => {
     const sex = req.body.sex;
     const birthdate = req.body.birthdate;
     const country = req.body.countries;
+    let role;
 
     let config = JSON.parse(fs.readFileSync("./config/config.json"));
 

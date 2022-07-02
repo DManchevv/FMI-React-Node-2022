@@ -5,7 +5,7 @@ const db = utils.db;
 const mode = utils.mode;
 const globalConf = require('../config/global.conf.js');
 
-router = express.Router();
+const router = express.Router();
 
 router.get("/", async(req, res) => {
     let success = req.query.success;
@@ -48,9 +48,6 @@ router.get("/new-promotion", async(req, res) => {
         FROM targetgroups`
     );
 
-    res.render("new_promotion", {
-        data: targetGroups
-    });
 });
 
 router.post("/", async(req, res) => {

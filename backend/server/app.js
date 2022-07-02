@@ -37,6 +37,7 @@ const poolAdmin = utils.poolAdmin;
 const mode = utils.mode;
 const asyncErrorHandler = utils.asyncErrorHandler;
 const AUDITROWSLIMIT = 1000;
+let jsonResponse = utils.jsonResponse;
 
 const errorLogger = fs.createWriteStream('errorLog.txt', {
     flags: 'a'
@@ -160,21 +161,6 @@ app.get('/api/checkBackOfficeUser', async(req, res) => {
     }
 })
 
-// RENDER HOME PAGE
-app.get('/', (req, res) => {
-    if (req.session != null) {
-        if (req.session.role != null) {
-            if (req.session.role === "staff") {
-                res.redirect('/product-management/renderPage/1');
-                return;
-            }
-        }
-    }
-
-    delete req.session.error;
-    res.render('index.ejs', { error: "as" });
-});
-
 // GET ALL USERS
 app.get("/users", async (req, res) => {
     const allUsers = await pool.query("SELECT * FROM users");
@@ -199,19 +185,6 @@ app.use("/login", loginRouter)
    .use("/staff-management", staffManagementRouter);
 
 //-----------------------------------------------------------------------
-
-/* #region  Staff Login */
-
-app.get('/back-office', function (req, res) {
-    if (req.session.staffid == null) {
-        res.render('sys-login', {
-            message: null
-        });
-    }
-    else {
-        res.redirect('/product-management/renderPage/1');
-    }
-});
 
 // Find user from login
 app.post("/back-office", asyncErrorHandler(async (req, res, next) => {
@@ -336,11 +309,6 @@ app.get("/staff-logout", (req, res) => {
 
 /* #region  My Account */
 
-// Render page
-app.get("/myAccount", (req, res) => {
-    res.render('myAccount');
-});
-
 // Get user details
 app.get("/myAccount/details", asyncErrorHandler(async (req, res) => {
     const userid = req.session.userid;
@@ -446,10 +414,6 @@ app.get("/currencyConverter", asyncErrorHandler(async (req, res) => {
 
 /* #region  Contact Forms */
 
-app.get("/contacts", (req, res) => {
-    res.render("contactForm");
-});
-
 app.post("/contacts/submit-form", asyncErrorHandler(async (req, res, next) => {
     try {
         let topic = req.body.topic;
@@ -457,9 +421,6 @@ app.post("/contacts/submit-form", asyncErrorHandler(async (req, res, next) => {
         const orderRegex = /^[0-9]*$/;
 
         if (orderRegex.test(req.body.order) == false) {
-            res.render('contactForm', {
-                error: "Номера на поръчката може да съдържа само цифри!"
-            });
 
             return;
         }
@@ -467,9 +428,6 @@ app.post("/contacts/submit-form", asyncErrorHandler(async (req, res, next) => {
         const nameRegex = /^[,.\-a-zA-Zа-яА-Я]*$/
 
         if (nameRegex.test(req.body.names) == false) {
-            res.render('contactForm', {
-                error: "Полето 'Име и фамилия' може да съдържа само букви и символите '-' ',' '.'!"
-            });
 
             return;
         }
@@ -477,9 +435,6 @@ app.post("/contacts/submit-form", asyncErrorHandler(async (req, res, next) => {
         const emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (emailRegex.test(req.body.email) == false) {
-            res.render('contactForm', {
-                error: "Невалиден формат на електронната поща!"
-            });
 
             return;
         }
@@ -494,25 +449,16 @@ app.post("/contacts/submit-form", asyncErrorHandler(async (req, res, next) => {
             [topic, reason, orderID, details, names, email]
         );
 
-        if (newReport.rowCount == 1) {
-            res.render('contactForm', {
-                message: "Формулярът е изпратен успешно!"
-            });
+        if (newReport.rowCount === 1) {
 
             return;
         }
         else {
-            res.render('contactForm', {
-                message: "Възникна грешка, моля опитайте отново!"
-            });
-
             return;
         }
 
     } catch (err) {
-        res.render('contactForm', {
-            message: "Възникна грешка, моля опитайте отново!"
-        });
+        res.sendStatus(500);
     }
 }));
 
@@ -604,9 +550,6 @@ app.get("/users-permissions", asyncErrorHandler(async (req, res) => {
         return users;
     })
     .then(data => {
-        res.render("userPermissions", {
-            data: data
-        });
     })
     .catch(err => {
         res.redirect("/");
@@ -641,9 +584,6 @@ app.get("/audit-log", asyncErrorHandler(async (req, res) => {
         return auditlog;
     })
     .then(data => {
-        res.render('auditlog', {
-            data: data
-        });
     })
     .catch(err => {
         console.error(err);
@@ -695,9 +635,6 @@ app.get("/error-log-file", asyncErrorHandler(async (req, res) => {
         fileData = line.toString() + '\n' + fileData;
     };
 
-    res.render('error-log', {
-        textStream: fileData
-    });
 }));
 
 app.get("/error-log-client-file", asyncErrorHandler(async (req, res) => {
@@ -713,10 +650,6 @@ app.get("/error-log-client-file", asyncErrorHandler(async (req, res) => {
     for await (const line of rl) {
         fileData = line.toString() + '\n' + fileData;
     };
-
-    res.render('error-log', {
-        textStream: fileData
-    });
 }));
 
 /* #endregion */
@@ -895,10 +828,6 @@ app.post("/target-groups/add-to-target-group", async (req, res) => {
   );
 
   res.status(globalConf.http.OK).json(filteredUsers);
-});
-
-app.get("/web-worker-test", async(req, res) => {
-  res.render("web_worker");
 });
 
 /* #endregion */

@@ -14,9 +14,6 @@ const globalConf = require('../config/global.conf.js');
 const PAGESIZE = globalConf.pagesize;
 
 router.get("/", (req, res) => {
-    res.render('reports_orders', {
-        message: null
-    });
 });
 
 router.post("/get-orders", asyncErrorHandler(async (req, res, next) => {

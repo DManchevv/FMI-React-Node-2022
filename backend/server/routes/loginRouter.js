@@ -10,17 +10,15 @@ const db = utils.db;
 const mode = utils.mode;
 const transporter = utils.transporter;
 const asyncErrorHandler = utils.asyncErrorHandler;
+const session = utils.session;
+const pool = utils.pool;
 
 router.get('/', function (req, res) {
     let verify = req.query.v;
-    if (verify == 't') {
-        res.render('login', {
-            message: "Изпратен е мейл за потвърждение до посочената от Вас електронна поща. Потвърдете имейла си преди да продължите или влезте с друг акаунт!"
-        });
+
+    if (verify === 't') {
+
     }
-    else res.render('login', {
-        message: null
-    });
 });
 
 // Find user from login
@@ -124,9 +122,7 @@ router.post("/", asyncErrorHandler(async (req, res, next) => {
 // Not Verified template
 router.get('/not-verified', (req, res) => {
     let uid = req.query.uid;
-    res.render('not_verified', {
-        uid: uid
-    });
+
 });
 
 router.get('/not-verified/send-email', asyncErrorHandler(async (req, res) => {
