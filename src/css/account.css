@@ -1,0 +1,40 @@
+.my-account-heading {
+    margin-top: 3rem;
+}
+
+.profile-details {
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.profile-pic {
+    gap: 2em;
+}
+
+.profile-information {
+    padding: 10px;
+    align-items: flex-start;
+    background-color: rgb(10 3 38)
+}
+
+.profile-information div {
+    border-top: 1px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.profile-information div:last-child {
+    border-bottom: 1px solid white;
+}
+
+.address-edit-pencil:hover {
+    cursor: pointer;
+}
+
+.fontawesome-icon {
+    text-shadow: 0 0 3px #fff;
+}
+
+#icon-close-address-wrapper {
+    margin-left: 10px;
+}

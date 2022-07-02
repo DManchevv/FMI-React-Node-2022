@@ -1,0 +1,12 @@
+.product-modification {
+    background-color: #236e58;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin-top: 4rem;
+}
+
+.product-id {
+    cursor: not-allowed;
+}

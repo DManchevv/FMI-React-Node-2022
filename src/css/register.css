@@ -1,0 +1,81 @@
+.gradient-custom-3 {
+  /* fallback for old browsers */
+  background: #49584f;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(50, 63, 55, 0.5), rgba(52, 56, 58, 0.5));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(37, 39, 38, 0.5), rgba(172, 210, 224, 0.5))
+}
+.gradient-custom-4 {
+  /* fallback for old browsers */
+  background: #84fab0;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgb(26, 27, 26), rgb(34, 36, 37));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgb(194, 194, 194), rgb(124, 240, 232))
+}
+
+form {
+  margin: 1rem;
+  border: 0 !important;
+}
+
+form.custom-form label {
+  color: black !important;
+}
+
+.home-page {
+position: absolute;
+bottom: 1rem;
+left: 5rem;
+}
+
+.home-page a:active, .home-page a:visited, .home-page a:link {
+text-decoration: none;
+color: black;
+}
+
+.home-page a {
+display: block;
+}
+
+.response-message {
+color: red;
+font-size: 20px;
+margin-bottom: 2rem;
+}
+
+#error-message {
+color: red;
+font-size: 20px;
+}
+
+.custom-form-control {
+  display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+p.text-center a:link,p.text-center a:active,p.text-center a:visited {
+  color: black !important;
+}
+
+p.text-center a:hover {
+  color: green !important;
+}

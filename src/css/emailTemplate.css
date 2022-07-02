@@ -1,0 +1,62 @@
+.template-form {
+    background-color: rgb(25 25 30);
+}
+
+.submit-btn {
+    display: block;
+    margin: auto;
+    padding: 15px;
+    background-color: #236e58;
+    border: 1px solid black;
+    color: white;
+    font-size: 20px;
+}
+
+.submit-btn:hover {
+    background-color: #0a513c;
+    transition: 0.2s;
+}
+
+.email-main-content{
+    margin-left: 10rem;
+}
+
+form label {
+    color: white;
+}
+
+form {
+    border: 3px solid #373b3e;
+}
+
+.legend-body {
+    background-color: rgb(25 25 30);
+    border: 3px solid #373b3e;
+}
+
+.table-bordered>:not(caption)>*>*{
+    border-width: 4px 4px;
+}
+
+.form-control {
+    background-color: #212529;
+    color: white;
+    border: 3px solid #373b3e;
+}
+
+.form-control:focus {
+    background-color: #212529;
+    color:white;
+}
+
+.form-control[readonly] {
+    background-color: #212529;
+}
+
+.template {
+    width: 50%;
+}
+
+#senderMail {
+    cursor: not-allowed;
+}

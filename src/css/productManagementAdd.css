@@ -1,0 +1,32 @@
+.product-add {
+    background-color: #236e58;
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    max-width: 50%;
+    margin: auto;
+    margin-top: 4rem;
+    justify-content: space-around;
+}
+
+.product-id {
+    cursor: not-allowed;
+}
+
+.form-text-fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media only screen and (max-width: 1440px) {
+    .product-add {
+        max-width: 80%;
+    }
+}

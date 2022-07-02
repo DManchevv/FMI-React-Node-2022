@@ -1,0 +1,31 @@
+.smart-button-container {
+    position: fixed;
+    top: 40%;
+    left: 35%;
+    height: 500px;
+    width: 500px;
+}
+
+.answer-container {
+    position: fixed;
+    top: 35%;
+    left: 35%;
+    height: 30%;
+    width: 30%;
+    background-color: #236e58;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer-container a {
+    font-size: 26px;
+    color: black;
+}
+
+.answer-container a:hover {
+    color: #ffda14;
+}

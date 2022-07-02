@@ -1,0 +1,50 @@
+.products-table td{
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.orders-list {
+    margin-top: 3rem;
+}
+
+.order {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 2px solid rgb(14, 20, 182);
+    padding: 20px;
+    justify-content: space-between;
+    margin:auto;
+    min-width: 50%;
+}
+
+.order-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.order-details-wrapper p {
+    padding: 0;
+}
+
+.checkout-btn {
+    max-width: 100px;
+    min-width: 80px;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin-top: 2rem;
+}
+
+.checkout-btn:hover {
+    color: white;
+    background-color: rgb(36, 34, 34);
+}
+
+.button-div {
+    gap: 2rem;
+}

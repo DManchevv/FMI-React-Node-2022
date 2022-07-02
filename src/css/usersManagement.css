@@ -1,0 +1,225 @@
+.users-table td {
+    border: 1px solid rgb(70, 70, 70);
+}
+
+.users-table tr {
+  min-height: 80px !important;
+}
+
+.users-table tr:not(.filter-row, .allow-wrap) {
+    white-space: nowrap;
+}
+
+.users-table td {
+    padding: 10px;
+    min-height: 80px !important;
+    width: fit-content;
+    block-size: max-content;
+    font-size: 14px;
+}
+
+.users-table {
+    margin: 0;
+    background-color: rgb(38, 36, 36);
+    table-layout: fixed;
+}
+
+.interactable {
+  cursor: pointer;
+}
+
+h1 {
+    margin-top: 3rem;
+}
+
+.users-table-wrapper {
+    min-width: 70%;
+    margin-left: 13rem;
+    margin-top: 3rem;
+}
+
+.table-count {
+    margin-top: 5rem;
+}
+
+.users-table input {
+    max-width: 150px;
+}
+
+.users-table select {
+    min-width: 100px;
+}
+
+.filter-row td select {
+    max-width: 100px;
+}
+
+.users-table .filter-row td {
+    text-align: center;
+}
+
+.users-table .filter-row td select {
+    margin-bottom: 5px;
+}
+
+.filters {
+    position: sticky;
+    border-right: 1px solid white;
+    margin-right: 2rem;
+    top: 10px;
+    align-self: flex-start;
+    height: 1000px;
+}
+
+.response {
+  margin-top: 5px;
+  color: red;
+  font-size: 30px;
+
+}
+
+.main-content {
+    margin: 1rem 0 0 0;
+    align-items: flex-start;
+}
+
+btn {
+    cursor: pointer;
+}
+
+.btn {
+    max-width: 50%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.details-btn {
+    display: block;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #236e58;
+    color: white;
+}
+
+.details-btn:hover {
+  background-color: #0e3227;
+}
+
+.actions-cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.add-product-cell {
+    text-align: center;
+    height: 5rem;
+}
+
+.add-product-cell div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add-product-cell div a {
+    margin: 0;
+}
+
+.page-navigation {
+    height: 80px;
+}
+
+.active-page {
+    color: black;
+    background-color: green;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    z-index: 100;
+    background-color: #3c3c3c;
+    color: white;
+    backdrop-filter: blur(2px);
+}
+
+body.blur > *:not(.popup) {
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+body.blur {
+  overflow: hidden;
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+  
+a span {
+    margin-left: 25px;
+    color: black;
+    text-decoration: none !important;
+}
+
+body.dark a span {
+    color: white;
+}
+
+a {
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+.enlarge-dropdown {
+    width: 200px;
+}
+
+.main-content-wrapper {
+    width: 100%;
+    margin: 0;
+}
+
+@media only screen and (max-width: 1300px) {
+    .wrapper .price-input div.separator {
+        width: 25px;
+    }
+
+    .price-input .field span{
+        font-size: 13px;
+    }
+
+    .filters {
+        width: 22%;
+        top: 9rem;
+    }
+
+    body {
+        overflow: scroll;
+    }
+
+    .main-content {
+        margin-top: 9rem;
+    }
+
+    .navigation-wrap {
+        position:fixed;
+        left: 0px;
+    }
+}

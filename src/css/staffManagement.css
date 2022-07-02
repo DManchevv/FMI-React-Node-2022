@@ -1,0 +1,270 @@
+.blurred {
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+.staff-table {
+    margin-left: 0 !important;
+    margin-top: 1.5rem;
+    background-color: rgb(38, 36, 36);
+}
+
+.staff-table td {
+    border: 1px solid rgb(70, 70, 70);
+}
+
+.staff-table tr {
+  min-height: 80px !important;
+}
+
+.staff-table td {
+    padding: 20px;
+    min-height: 80px !important;
+}
+
+.actions a {
+    color:black;
+    background-color: white;
+    padding: 6px;
+    margin-right: 1rem;
+}
+
+.table-wrapper {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.table-count {
+    margin-top: 5rem;
+    margin-left: 22%;
+}
+
+.interactable {
+  cursor: pointer;
+}
+
+.staff-table input {
+    max-width: 200px;
+}
+
+.staff-table select {
+    min-width: 100px;
+}
+
+.staff-table .filter-row td {
+    text-align: center;
+}
+
+.staff-table .filter-row td select {
+    margin-bottom: 5px;
+}
+
+.filters {
+    position: sticky;
+    border-right: 1px solid white;
+    margin-right: 2rem;
+    top: 10px;
+    align-self: flex-start;
+    height: 1000px;
+}
+
+.response {
+  margin-top: 5px;
+  color: red;
+  font-size: 30px;
+
+}
+
+.main-content {
+    margin: 1rem 0 0 0;
+    align-items: flex-start;
+}
+
+btn {
+    cursor: pointer;
+}
+
+.btn {
+    max-width: 50%;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.details-btn {
+    margin: auto;
+    padding: 10px;
+    border: 1px solid blue;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+}
+
+.details-btn:hover {
+    background-color: #3c3c3c;
+}
+
+.products-table-cell {
+    min-width: 170px !important; 
+}
+
+.actions-cell {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.add-product-cell {
+    text-align: center;
+    height: 5rem;
+}
+
+.add-product-cell div {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add-product-cell div a {
+    margin: 0;
+}
+
+.page-navigation {
+    height: 80px;
+}
+
+.active-page {
+    color: black;
+    background-color: green;
+}
+
+/* POPUP */
+.popup {
+    position: fixed;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 50%;
+    z-index: 100;
+    background-color: #3c3c3c;
+    color: white;
+    backdrop-filter: blur(2px);
+}
+
+body.blur > *:not(.popup) {
+  pointer-events: none;
+  filter: blur(3px);
+}
+
+body.blur {
+  overflow: hidden;
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+/* Create Staff Form */
+.create-staff-user-form {
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    padding: 20px;
+    background-color:#236e58;
+    max-width: 30%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.row {
+    margin-bottom : 3rem;
+}
+
+.create-staff-user-form button {
+    border-radius: 10px;
+    height: 50px;
+    margin-top: 2rem;
+}
+
+.create-staff-user-form button:hover {
+    background-color: black;
+    color: white;
+    transition: 0.4s;
+}
+
+.close-btn {
+    position: absolute;
+    right: 0;
+    width: 45px;
+    top: -30px;
+    background-color: red;
+    color: white;
+}
+
+/* a */
+  
+a span {
+    margin-left: 25px;
+    color: black;
+    text-decoration: none !important;
+}
+
+body.dark a span {
+    color: white;
+}
+
+a {
+    position: relative;
+    z-index: 1;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Create Staff Button */
+
+a.create-staff-user-btn {
+    width: 250px;
+    height: 2rem;
+    background-color: rgb(5, 82, 46);
+    color: white;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0.5rem 10em;
+}
+
+@media only screen and (max-width: 1300px) {
+    .wrapper .price-input div.separator {
+        width: 25px;
+    }
+
+    .price-input .field span{
+        font-size: 13px;
+    }
+
+    .filters {
+        width: 22%;
+        top: 9rem;
+    }
+
+    body {
+        overflow: scroll;
+    }
+
+    .main-content {
+        margin-top: 9rem;
+    }
+
+    .navigation-wrap {
+        position:fixed;
+        left: 0px;
+    }
+}
