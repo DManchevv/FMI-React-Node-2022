@@ -10,7 +10,7 @@ import 'https://use.fontawesome.com/releases/v5.15.4/js/all.js'
 
 export default function NotVerified({sendVerificationEmail}) {
     const [searchParams, setSearchParams] = useSearchParams();
-    console.log("<%=uid%>");
+
     return(
         <p>
             Акаунтът Ви все още не е верифициран. Моля проверете електронната поща, с която сте се регистрирали,<br/>
