@@ -32,9 +32,14 @@ export default function Login({setActiveUser}) {
         if (response.status === 403) {
           window.location.href = "/forbidden";
         }
+        else if (response.status === 260) {
+          response.json()
+          .then(data => {
+            window.location.href= `/login/not-verified?uid=${data}`
+          })
+        }
         else if (response.status === 200) {
           setActiveUser(true);
-          window.location.href= "/";
         }
       });
     }

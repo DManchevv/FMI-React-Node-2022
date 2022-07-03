@@ -46,17 +46,16 @@ export default function BackOfficeLogin({setActiveUser}) {
                       <form action="/back-office" onSubmit={handleSubmit} method = "post" id="login-form"> 
                         <input type="hidden" id="checkout-products"/>
                         <div className="form-outline mb-4">
-                          <label className="form-label" htmlFor="form3Example1cg">Потребителско име</label>
+                          <label className="form-label text-dark" htmlFor="form3Example1cg">Потребителско име</label>
                           <input onChange={e => {setUsername(e.target.value)}} type="text" name="username" id="form3Example1cg" className="custom-form-control form-control-lg" />
                         </div>
                         <div className="form-outline mb-4">
-                          <label className="form-label" htmlFor="form3Example4cg">Парола</label>
+                          <label className="form-label text-dark" htmlFor="form3Example4cg">Парола</label>
                           <input onChange={e => {setPassword(e.target.value)}} type="password" name="password" id="form3Example4cg" className="custom-form-control form-control-lg" />
                         </div>
                         <div className="d-flex justify-content-center">
                           <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Влез</button>
                         </div>
-                        <p className="text-center text-muted mt-5 mb-0">Нямате акаунт? <Link to="/register" className="fw-bold text-body"><u>Регистрирайте се тук</u></Link></p>
                       </form>
                     </div>
                     <Link to="/" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body home-page"><i className="fas fa-home"></i></Link>

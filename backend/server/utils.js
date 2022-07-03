@@ -8,6 +8,7 @@ const crypto = require('crypto');
 const multer = require("multer");
 const { promisify } = require('util');
 const { TransactionMode, isolationLevel } = pgp.txMode;
+const globalConf = require('./config/config.json');
 
 const checksum = function(str, algorithm, encoding) {
     return crypto
@@ -119,7 +120,7 @@ module.exports.formatDate = function (inputDate) {
     const SECONDS = 60;
     const MILISECONDS = 1000;
     const offset = convertedDate.getTimezoneOffset();
-    localDate = new Date(convertedDate.getTime() - (offset * SECONDS * MILISECONDS)); 
+    let localDate = new Date(convertedDate.getTime() - (offset * SECONDS * MILISECONDS)); 
     localDate = localDate.toISOString();
     let date = localDate.split('T')[0];
     let time = localDate.split('T')[1];
